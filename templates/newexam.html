@@ -16,14 +16,14 @@
  
     
     <script> 
-//STORING NEW SURVEYS
+//STORING NEW EXAMS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
             $('#myForm').on("submit", function(e) { 
                 e.preventDefault();
                 var data = {
                     name: $('#examName').val(),
-                    date: $('#examDate').val()
+                    date: $('#examDate').val(),
                 };
                 console.log(data);
                 
@@ -112,9 +112,10 @@
 <!--        <div class="col-lg-2"></div>-->
         <div class="col-lg-8 col-lg-offset-2 form-group">
             <label>Exam Name: </label>
-            <input class="form-control" type="text" name="name" id="surveyName">
+            <input class="form-control" type="text" name="name" id="examName">
             <label>Creation Date: </label>
-            <input class="form-control" type="text" name="date" id="surveyDate">
+            <input class="form-control" type="text" name="date" id="examDate">
+            <input class="form-control" type="text" name="date" id="examDate">
 
             <br>
             <br>
@@ -160,7 +161,7 @@
                 </tbody>
             </table>
             
-            <button type="button" class="delete-row" style="float:right">Delete Row</button>
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
     
         </div>
         

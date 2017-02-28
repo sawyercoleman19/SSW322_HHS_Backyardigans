@@ -16,14 +16,14 @@
  
     
     <script> 
-    //STORING NEW SURVEYS
+//STORING NEW SURVEYS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
             $('#myForm').on("submit", function(e) { 
                 e.preventDefault();
                 var data = {
                     name: $('#surveyName').val(),
-                    date: $('#surveyDate').val()
+                    date: $('#surveyDate').val(),
                 };
                 console.log(data);
                 
@@ -42,7 +42,7 @@
             }); 
         });
         
-        
+// ADDING MULTIPLE CHOICE      
         $(document).ready(function(){
             function populateQuestions() {
                 let multipleChoice = localStorage.getItem('multipleChoice');
@@ -155,12 +155,13 @@
                             D: Four Things</td>
                         
                         <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
-                        <td><input type="checkbox" name="record"></td>
+                        <td>Example</td>
                     </tr>
                 </tbody>
             </table>
             
-            <button type="button" class="delete-row" style="float:right">Delete Row</button>
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
+            
     
         </div>
         

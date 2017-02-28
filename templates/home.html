@@ -67,24 +67,22 @@
             });
         });
         
-//<!-- ADD / REMOVE EXAM ROWS-->
-    <script type="text/javascript">
-        
+//<!-- ADD / REMOVE EXAM ROWS-->    
         $(document).ready(function(){
-            function populateSurveys() {
-                let surveys = localStorage.getItem('surveys');
+            function populateExams() {
+                let exams = localStorage.getItem('exams');
                 
-                if (!surveys) return;
+                if (!exams) return;
                 
-                surveys = JSON.parse(surveys);
+                exams = JSON.parse(exams);
                 
-                let addSurvey = "" ;
+                let addExam = "" ;
                 
-                for (let i in surveys){
-                    addSurvey += (`
+                for (let i in exams){
+                    addExam += (`
                         <tr data-index="${i}">
-                            <td>${surveys[i].name}</td>
-                            <td>${surveys[i].date}</td>
+                            <td>${exams[i].name}</td>
+                            <td>${exams[i].date}</td>
                             <td class='btn btn-default actionButton' style='margin-right: 90px'> Take </td>
                             <td class='btn btn-default actionButton' style='margin-right: 90px'> Results </td><td class='btn btn-default actionButton'> Edit </td>
                             <td><input type="checkbox" name="record"></td>
@@ -92,24 +90,23 @@
                     `);
                 };
                 
-                $("#surveyTable > tbody").append(addSurvey);
+                $("#examTable > tbody").append(addExam);
             };
             
-            populateSurveys();
+            populateExams();
                 
 //             Find and remove selected table rows
             $(".delete-row").click(function(){
-                $("#surveyTable > tbody input[name=record]").each(function(){
+                $("#examTable > tbody input[name=record]").each(function(){
                     if($(this).is(":checked")){
-                        
                         
                         let $row = $(this).closest("tr");
                         let index = parseInt($row.attr("data-index"));
-                        let surveys = JSON.parse(localStorage.getItem('surveys'));
+                        let exams = JSON.parse(localStorage.getItem('exams'));
                         
-                        surveys.splice(index, 1);
+                        exams.splice(index, 1);
 
-                        localStorage.setItem('surveys', JSON.stringify(surveys));
+                        localStorage.setItem('exams', JSON.stringify(exams));
                         
                         $row.remove();
                         
@@ -140,7 +137,7 @@
     <hr style="width:100%">
     
     <div class="container">
-        <div class="col-lg-12 row text-center">
+        <div class="col-lg-12 row text-left">
             <h3 class="text-left">Surveys</h3>
             <table class="table table-hover" id="surveyTable">
                 <thead>
@@ -160,27 +157,17 @@
                         <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
                         <td class="btn btn-default actionButton"> Edit </td>
                         
-                        <td><input type="checkbox" name="record"></td>
-                    </tr>
-                    <tr>
-                        <td>Cool Survey #1</td>
-                        <td>2/23/17</td>
-
-                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Take </td>
-                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
-                        <td class="btn btn-default actionButton"> Edit </td>
-                        
-                        <td><input type="checkbox" name="record"></td>
+                        <td>Example</td>
                     </tr>
                 </tbody>
             </table>
             
-            <button type="button" class="delete-row" style="float:right">Delete Row</button>
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
         
         </div>
         
         
-        <div class="col-lg-12 row text-center">
+        <div class="col-lg-12 row text-left">
             <h3 class="text-left">Exams</h3>
             <table class="table table-hover" id="examTable">
                 <thead>
@@ -200,22 +187,12 @@
                         <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
                         <td class="btn btn-default actionButton"> Edit </td>
                         
-                        <td><input type="checkbox" name="record"></td>
-                    </tr>
-                    <tr>
-                        <td>Bad Exam #2</td>
-                        <td>2/23/17</td>
-
-                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Take </td>
-                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
-                        <td class="btn btn-default actionButton"> Edit </td>
-                        
-                        <td><input type="checkbox" name="record"></td>
+                        <td>Example</td>
                     </tr>
                 </tbody>
             </table>
             
-            <button type="button" class="delete-row" style="float:right">Delete Row</button>
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
 
         </div>
     </div>
