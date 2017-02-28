@@ -1,23 +1,174 @@
 <html> 
 <head> 
+    <title>Page Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- JQUERY   -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
  
+    
     <script> 
-        // wait for the DOM to be loaded 
+//STORING NEW SURVEYS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#myForm').ajaxForm(function() { 
-                alert("Thank you for your comment!"); 
+            $('#myForm').on("submit", function(e) { 
+                e.preventDefault();
+                var data = {
+                    name: $('#examName').val(),
+                    date: $('#examDate').val()
+                };
+                console.log(data);
+                
+                var newExams = localStorage.getItem('exams');
+                if (newExams === null){
+                    newExams = [];
+                }
+                else{
+                    newExams = JSON.parse(newExams);
+                }
+
+                newExams.push(data);
+                
+                localStorage.setItem('exams', JSON.stringify(newExams));
+  
             }); 
-        }); 
+        });
+        
+// ADDING MULTIPLE CHOICE TO TABLE   
+        $(document).ready(function(){
+            function populateQuestions() {
+                let multipleChoice = localStorage.getItem('multipleChoice');
+                
+                if (!multipleChoice) return;
+                
+                multipleChoice = JSON.parse(multipleChoice);
+                
+                let addMultipleChoice = "" ;
+                
+                for (let i in multipleChoice){
+                    addMultipleChoice += (`
+                        <tr data-index="${i}">
+                            <td>Multiple Choice</td>
+                            <td>${multipleChoice[i].questionText}</td>
+                            <td>A: ${multipleChoice[i].option1} <br>
+                                B: ${multipleChoice[i].option2} <br>
+                                C: ${multipleChoice[i].option3} <br>
+                                D: ${multipleChoice[i].option4}</td>
+
+                            
+                            <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                            <td><input type="checkbox" name="record"></td>
+                        </tr>
+                    `);
+                };
+                
+                $("#questionTable > tbody").append(addMultipleChoice);
+            };
+            
+            populateQuestions();
+                
+//             Find and remove selected table rows
+            $(".delete-row").click(function(){
+                $("#questionTable > tbody input[name=record]").each(function(){
+                    if($(this).is(":checked")){
+                        
+                        
+                        let $row = $(this).closest("tr");
+                        let index = parseInt($row.attr("data-index"));
+                        let multipleChoice = JSON.parse(localStorage.getItem('multipleChoice'));
+                        
+                        multipleChoice.splice(index, 1);
+
+                        localStorage.setItem('multipleChoice', JSON.stringify(multipleChoice));
+                        
+                        $row.remove();
+                        
+                    }
+                });
+            });
+        });
+        
     </script> 
 </head>
 <body>
-    <form id="myForm" action="comment.php" method="post"> 
-        Exam Name: <input type="text" name="name" /> 
-        Date: <textarea name="date"></textarea> 
-    <input type="submit" value="Submit Comment" /> 
-</form>
+    <div class="col-lg-12 text-center">
+            <h1>HHS Backyardigans Questionaire Pro</h1>
+            <p>An Experience Unmatched</p>
+    </div>
+    
+    <div class="col-lg-12 text-center">
+        <h2>New Exam</h2>
+    </div>
+    
+    <form id="myForm"> 
+<!--        <div class="col-lg-2"></div>-->
+        <div class="col-lg-8 col-lg-offset-2 form-group">
+            <label>Exam Name: </label>
+            <input class="form-control" type="text" name="name" id="surveyName">
+            <label>Creation Date: </label>
+            <input class="form-control" type="text" name="date" id="surveyDate">
+
+            <br>
+            <br>
+            <br>
+            
+            <div>
+                <label for="exampleSelect1">Add New Question:</label>
+                <a href="multiplechoice.html" class='btn btn-default actionButton' type="submit" role="button" data-style="zoom-in" style="margin-right: 20px"><span class="ladda-label">Add Multiple Choice</span><span class="ladda-spinner"></span></a>
+                <a href="home.html" class='btn btn-default actionButton' type="submit" role="button" data-style="zoom-in" style="margin-right: 20px"><span class="ladda-label">Add True or False</span><span class="ladda-spinner"></span></a>
+                <a href="home.html" class='btn btn-default actionButton' type="submit" role="button" data-style="zoom-in" style="margin-right: 20px"><span class="ladda-label">Add Matching</span><span class="ladda-spinner"></span></a>
+                <a href="home.html" class='btn btn-default actionButton' type="submit" role="button" data-style="zoom-in" style="margin-right: 20px"><span class="ladda-label">Add Short Answer</span><span class="ladda-spinner"></span></a>
+                <a href="home.html" class='btn btn-default actionButton' type="submit" role="button" data-style="zoom-in" style="margin-right: 20px"><span class="ladda-label">Add Essay</span><span class="ladda-spinner"></span></a>
+            </div>
+            
+            <br>
+            <br>
+            
+        </div>
+        
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h3 class="text-left">Questions</h3>
+            <table class="table table-hover" id="questionTable">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Question Text</th>
+                        <th>Options</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multiple Choice</td>
+                        <td>How many things in a thing?</td>
+                        <td>A:One Thing <br>
+                            B: Two Things <br>
+                            C: Three Things <br>
+                            D: Four Things</td>
+                        
+                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                        <td><input type="checkbox" name="record"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button type="button" class="delete-row" style="float:right">Delete Row</button>
+    
+        </div>
+        
+        <div class="col-lg-8 col-lg-offset-2">
+            <input class='btn btn-default actionButton' type="submit" value="Save" />
+
+            <a href="home.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Home</span><span class="ladda-spinner"></span></a>
+        </div> 
+    </form>
 </body>
 </html>
