@@ -25,21 +25,19 @@
                     questionText: $('#questionText').val(),
                     option1: $('#option1').val(),
                     option2: $('#option2').val(),
-                    option3: $('#option3').val(),
-                    option4: $('#option4').val()
                 };
                 console.log(multiData);
                 
-                var newMulti = localStorage.getItem('multipleChoice');
+                var newMulti = localStorage.getItem('trueFalse');
                 if (newMulti === null){
                     newMulti = [];
                 }
-                else{
+                else{2
                     newMulti = JSON.parse(newMulti);
                 }
                 newMulti.push(multiData);
                 
-                localStorage.setItem('multipleChoice', JSON.stringify(newMulti));
+                localStorage.setItem('trueFalse', JSON.stringify(newMulti));
   
             }); 
         });
@@ -58,20 +56,15 @@
     <form id="myForm"> 
         <div class="col-lg-10 col-lg-offset-1 form-group">
             <label>Question: </label>
-            <input type="surveyname" class="form-control" id="examplesurveyname" placeholder="Enter Question">
+            <input class="form-control" type="text" name="questionText" id="questionText" placeholder="Enter Question">
             
-            <br>
+          </br>
           
-            <input type="radio" name="TrueFalse" value="true"> True
-            <input type="radio" name="TrueFalse" value="false"> False
-        </div>
-
-            <br>
-            
-        </div>
-        
-        
-        
+            <input type="radio" name="TrueFalse" value="True" id="option1"> True
+            <input type="radio" name="TrueFalse" value="False" id="option2"> False
+      </div>
+          </br>
+ 
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 

@@ -26,11 +26,12 @@
                     option1: $('#option1').val(),
                     option2: $('#option2').val(),
                     option3: $('#option3').val(),
-                    option4: $('#option4').val()
+                    option4: $('#option4').val(),
+                    option5: $('#option5').val()
                 };
                 console.log(multiData);
                 
-                var newMulti = localStorage.getItem('multipleChoice');
+                var newMulti = localStorage.getItem('rating');
                 if (newMulti === null){
                     newMulti = [];
                 }
@@ -39,7 +40,7 @@
                 }
                 newMulti.push(multiData);
                 
-                localStorage.setItem('multipleChoice', JSON.stringify(newMulti));
+                localStorage.setItem('rating', JSON.stringify(newMulti));
   
             }); 
         });
@@ -58,15 +59,15 @@
     <form id="myForm"> 
         <div class="col-lg-10 col-lg-offset-1 form-group">
             <label>Question: </label>
-            <input type="surveyname" class="form-control" id="examplesurveyname" placeholder="Enter Question">
+            <input type="text" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
             
             <br>
           
-          <input type="radio" name="Rating" value="1"> 1 
-          <input type="radio" name="Rating" value="2"> 2
-          <input type="radio" name="Rating" value="3"> 3
-          <input type="radio" name="Rating" value="4"> 4
-          <input type="radio" name="Rating" value="5"> 5
+          <input type="radio" name="rating" value="1" id="option1"> 1 
+          <input type="radio" name="rating" value="2" id="option2"> 2
+          <input type="radio" name="rating" value="3" id="option3"> 3
+          <input type="radio" name="rating" value="4" id="option4"> 4
+          <input type="radio" name="rating" value="5" id="option5"> 5
         </div>
         </div>
 
