@@ -34,8 +34,9 @@
                         <tr data-index="${i}">
                             <td>${surveys[i].name}</td>
                             <td>${surveys[i].date}</td>
-                            <td class='btn btn-default actionButton' style='margin-right: 90px'> Take </td>
-                            <td class='btn btn-default actionButton' style='margin-right: 90px'> Results </td><td class='btn btn-default actionButton'> Edit </td>
+                            
+                            <td class="btn btn-default actionButton" onclick="location.href='viewsurvey.html';"> View Questionaire </td>
+
                             <td><input type="checkbox" name="record"></td>
                         </tr>
                     `);
@@ -65,56 +66,7 @@
                     }
                 });
             });
-        });
-        
-//<!-- ADD / REMOVE EXAM ROWS-->    
-        $(document).ready(function(){
-            function populateExams() {
-                let exams = localStorage.getItem('exams');
-                
-                if (!exams) return;
-                
-                exams = JSON.parse(exams);
-                
-                let addExam = "" ;
-                
-                for (let i in exams){
-                    addExam += (`
-                        <tr data-index="${i}">
-                            <td>${exams[i].name}</td>
-                            <td>${exams[i].date}</td>
-                            <td class='btn btn-default actionButton' style='margin-right: 90px'> Take </td>
-                            <td class='btn btn-default actionButton' style='margin-right: 90px'> Results </td><td class='btn btn-default actionButton'> Edit </td>
-                            <td><input type="checkbox" name="record"></td>
-                        </tr>
-                    `);
-                };
-                
-                $("#examTable > tbody").append(addExam);
-            };
-            
-            populateExams();
-                
-//             Find and remove selected table rows
-            $(".delete-row").click(function(){
-                $("#examTable > tbody input[name=record]").each(function(){
-                    if($(this).is(":checked")){
-                        
-                        let $row = $(this).closest("tr");
-                        let index = parseInt($row.attr("data-index"));
-                        let exams = JSON.parse(localStorage.getItem('exams'));
-                        
-                        exams.splice(index, 1);
-
-                        localStorage.setItem('exams', JSON.stringify(exams));
-                        
-                        $row.remove();
-                        
-                    }
-                });
-            });
-        });
-        
+        }); 
     </script>
 </head>
 <body>
@@ -126,9 +78,9 @@
     
     
     <div class="col-lg-12 text-center">
-        <h3>Create a New Survey or Exam:</h3>
-        <a href="newsurvey.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Survey</span><span class="ladda-spinner"></span></a>
-        <a href="newexam.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Exam</span><span class="ladda-spinner"></span></a>
+        <h3>Create a Questionaire:</h3>
+        <a href="newsurvey.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Click Here!</span><span class="ladda-spinner"></span></a>
+<!--        <a href="newexam.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Exam</span><span class="ladda-spinner"></span></a>-->
     </div>
     
     <br>
@@ -138,12 +90,12 @@
     
     <div class="container">
         <div class="col-lg-12 row text-left">
-            <h3 class="text-left">Surveys</h3>
+            <h3 class="text-left">Your Questionaires:</h3>
             <table class="table table-hover" id="surveyTable">
                 <thead>
                     <tr>
-                        <th>Survey Name</th>
-                        <th>Date Created</th>
+                        <th>Questionaire Name</th>
+                        <th>Type</th>
                         <th></th>
                         <th>Select</th>
                     </tr>
@@ -151,11 +103,16 @@
                 <tbody>
                     <tr>
                         <td>Cool Survey #1</td>
-                        <td>2/23/17</td>
+                        <td>Survey</td>
 
+                        <td class="btn btn-default actionButton" href="viewsurvey.html" disabled> View Questionaire </td>
+                        
+<!-- FOR FUTURE FEATURES-->
+<!--
                         <td class="btn btn-default actionButton" style="margin-right: 90px"> Take </td>
                         <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
                         <td class="btn btn-default actionButton"> Edit </td>
+-->
                         
                         <td>Example</td>
                     </tr>
@@ -166,7 +123,9 @@
         
         </div>
         
-        
+ 
+<!-- DIV FOR FUTURE SURVEY / EXAM SEPARATION-->
+<!--
         <div class="col-lg-12 row text-left">
             <h3 class="text-left">Exams</h3>
             <table class="table table-hover" id="examTable">
@@ -195,6 +154,7 @@
             <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
 
         </div>
+-->
     </div>
 </div>
 </body>

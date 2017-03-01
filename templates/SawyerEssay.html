@@ -1,6 +1,6 @@
 <html> 
 <head> 
-    <title>Short Answer</title>
+    <title>Essay</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -26,7 +26,7 @@
                 };
                 console.log(multiData);
                 
-                var newMulti = localStorage.getItem('shortAnswer');
+                var newMulti = localStorage.getItem('essay');
                 if (newMulti === null){
                     newMulti = [];
                 }
@@ -35,7 +35,7 @@
                 }
                 newMulti.push(multiData);
                 
-                localStorage.setItem('shortAnswer', JSON.stringify(newMulti));
+                localStorage.setItem('essay', JSON.stringify(newMulti));
   
             }); 
         });
@@ -48,7 +48,7 @@
     </div>
     
     <div class="col-lg-12 text-center">
-        <h2>New Short Answer Question</h2>
+        <h2>New Essay Question</h2>
     </div>
     
     <form id="myForm"> 
@@ -57,19 +57,16 @@
             <input type="text" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
             
             <br>
-            
-            <label>Character Limit: </label>
-            <input type="text" class="form-control" name="option1" id="option1">
-        </div>
+
+          <textarea name="moreinfo" cols="70" rows="30" maxlength="none"></textarea>
+             
         </div>
 
             <br>
-            
-        </div>
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
-            <a href="/templates/newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Survey</span><span class="ladda-spinner"></span></a>
+            <a href="/templates/newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
         </div> 
     </form>
 </body>

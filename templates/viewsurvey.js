@@ -45,9 +45,7 @@ $(document).ready(function(){
                         C: ${multipleChoice[i].option3} <br>
                         D: ${multipleChoice[i].option4}</td>
 
-
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
-                    <td><input type="checkbox" name="record"></td>
+                    <td>${multipleChoice[i].correct}</td>
                 </tr>
             `);
         };
@@ -97,8 +95,6 @@ $(document).ready(function(){
                     <td>A: ${trueFalse[i].option1} <br>
                         B: ${trueFalse[i].option2} </td>
 
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
-                    <td><input type="checkbox" name="record"></td>
                 </tr>
             `);
         };

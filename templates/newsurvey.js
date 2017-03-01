@@ -44,9 +44,9 @@ $(document).ready(function(){
                         B: ${multipleChoice[i].option2} <br>
                         C: ${multipleChoice[i].option3} <br>
                         D: ${multipleChoice[i].option4}</td>
+                    
+                    <td>${multipleChoice[i].correct}</td>
 
-
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
                     <td><input type="checkbox" name="record"></td>
                 </tr>
             `);

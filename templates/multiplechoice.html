@@ -26,7 +26,9 @@
                     option1: $('#option1').val(),
                     option2: $('#option2').val(),
                     option3: $('#option3').val(),
-                    option4: $('#option4').val()
+                    option4: $('#option4').val(),
+                    
+                    correct: $('#correct').val()
                 };
                 console.log(multiData);
                 
@@ -91,6 +93,17 @@
                     <input class="form-control" type="text" name="option4" id="option4">
                 </div>
             </div>
+            
+            <br>
+            <br>
+            
+            <div class="row">
+                <label for="example-text-input" class="col-lg-12 col-form-label">FOR EXAMS ONLY:</label>
+                <label for="example-text-input" class="col-lg-2 col-form-label">Enter Correct Option Here: </label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" name="correct" id="correct">
+                </div>
+            </div>
 
             <br>
             <br>
@@ -103,7 +116,7 @@
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
-            <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Survey</span><span class="ladda-spinner"></span></a>
+            <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
         </div> 
     </form>
 </body>
