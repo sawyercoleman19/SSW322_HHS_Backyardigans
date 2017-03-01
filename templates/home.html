@@ -66,7 +66,15 @@
                     }
                 });
             });
+            
+            $(".clear-all").click(function(){
+        
+                localStorage.clear();
+
+            });
         }); 
+        
+
     </script>
 </head>
 <body>
@@ -79,7 +87,7 @@
     
     <div class="col-lg-12 text-center">
         <h3>Create a Questionaire:</h3>
-        <a href="newsurvey.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Click Here!</span><span class="ladda-spinner"></span></a>
+        <a href="newsurvey.html" class="clear-all ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Click Here!</span><span class="ladda-spinner"></span></a>
 <!--        <a href="newexam.html" class="ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Exam</span><span class="ladda-spinner"></span></a>-->
     </div>
     
