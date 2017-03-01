@@ -1,6 +1,6 @@
 <html> 
 <head> 
-    <title>True or False</title>
+    <title>Essay</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -23,21 +23,19 @@
                 getMultiData.preventDefault();
                 var multiData = {
                     questionText: $('#questionText').val(),
-                    option1: $('#option1').val(),
-                    option2: $('#option2').val(),
                 };
                 console.log(multiData);
                 
-                var newMulti = localStorage.getItem('trueFalse');
+                var newMulti = localStorage.getItem('essay');
                 if (newMulti === null){
                     newMulti = [];
                 }
-                else{2
+                else{
                     newMulti = JSON.parse(newMulti);
                 }
                 newMulti.push(multiData);
                 
-                localStorage.setItem('trueFalse', JSON.stringify(newMulti));
+                localStorage.setItem('essay', JSON.stringify(newMulti));
   
             }); 
         });
@@ -50,25 +48,25 @@
     </div>
     
     <div class="col-lg-12 text-center">
-        <h2>New True or False Question</h2>
+        <h2>New Essay Question</h2>
     </div>
     
     <form id="myForm"> 
         <div class="col-lg-10 col-lg-offset-1 form-group">
             <label>Question: </label>
-            <input class="form-control" type="text" name="questionText" id="questionText" placeholder="Enter Question">
+            <input type="text" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
             
-          </br>
-          
-            <input type="radio" name="TrueFalse" value="True" id="option1" disabled> True
-            <input type="radio" name="TrueFalse" value="False" id="option2" disabled> False
-      </div>
-          </br>
- 
+            <br>
+
+          <textarea name="moreinfo" cols="70" rows="30" maxlength="none"></textarea>
+             
+        </div>
+
+            <br>
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
-            <a href="/templates/newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Survey</span><span class="ladda-spinner"></span></a>
+            <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Survey</span><span class="ladda-spinner"></span></a>
         </div> 
     </form>
 </body>
