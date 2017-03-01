@@ -6,7 +6,7 @@ $(document).ready(function() {
         e.preventDefault();
         var data = {
             name: $('#surveyName').val(),
-            date: $('#surveyDate').val(),
+            type: $('#surveyType').val(),
         };
         console.log(data);
 
