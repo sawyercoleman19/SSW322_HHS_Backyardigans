@@ -40,10 +40,10 @@ $(document).ready(function(){
                 <tr data-index="${i}">
                     <td>Multiple Choice</td>
                     <td>${multipleChoice[i].questionText}</td>
-                    <td>A: ${multipleChoice[i].option1} <br>
-                        B: ${multipleChoice[i].option2} <br>
-                        C: ${multipleChoice[i].option3} <br>
-                        D: ${multipleChoice[i].option4}</td>
+                    <td>A. ${multipleChoice[i].option1} <br>
+                        B. ${multipleChoice[i].option2} <br>
+                        C. ${multipleChoice[i].option3} <br>
+                        D. ${multipleChoice[i].option4}</td>
                     
                     <td>${multipleChoice[i].correct}</td>
 
@@ -94,10 +94,10 @@ $(document).ready(function(){
                 <tr data-index="${i}">
                     <td>True or False</td>
                     <td>${trueFalse[i].questionText}</td>
-                    <td>A: ${trueFalse[i].option1} <br>
-                        B: ${trueFalse[i].option2} </td>
+                    <td>A. ${trueFalse[i].option1} <br>
+                        B. ${trueFalse[i].option2} </td>
 
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                    <td>${trueFalse[i].correct}</td>
                     <td><input type="checkbox" name="record"></td>
                 </tr>
             `);
@@ -145,14 +145,14 @@ $(document).ready(function(){
                 <tr data-index="${i}">
                     <td>Rating</td>
                     <td>${rating[i].questionText}</td>
-                    <td>A: ${rating[i].option1} <br>
-                        B: ${rating[i].option2} <br>
-                        C: ${rating[i].option3} <br>
-                        D: ${rating[i].option4} <br>
-                        E: ${rating[i].option5} </td>
+                    <td>A. ${rating[i].option1} <br>
+                        B. ${rating[i].option2} <br>
+                        C. ${rating[i].option3} <br>
+                        D. ${rating[i].option4} <br>
+                        E. ${rating[i].option5} </td>
 
 
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                    <td>${rating[i].correct}</td>
                     <td><input type="checkbox" name="record"></td>
                 </tr>
             `);
@@ -201,7 +201,7 @@ $(document).ready(function(){
                     <td>${shortAnswer[i].questionText}</td>
                     <td> N/A </td>
 
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                    <td>${shortAnswer[i].correct}</td>
                     <td><input type="checkbox" name="record"></td>
                 </tr>
             `);
@@ -251,7 +251,7 @@ $(document).ready(function(){
                     <td>${essay[i].questionText}</td>
                     <td> N/A </td>
 
-                    <td class="btn btn-default actionButton" style="margin-right: 90px"> Edit </td>
+                    <td>${essay[i].correct}</td>
                     <td><input type="checkbox" name="record"></td>
                 </tr>
             `);
@@ -274,6 +274,63 @@ $(document).ready(function(){
 
                 essay.splice(index, 1);
                 localStorage.setItem('essay', JSON.stringify(essay));
+
+                $row.remove();
+
+            }
+        });
+    });
+});
+
+// ADDING MATCHING
+$(document).ready(function(){
+    function populateQuestions() {
+        let matching = localStorage.getItem('matching');
+
+        if (!matching) return;
+
+        matching = JSON.parse(matching);
+
+        let addMatching = "" ;
+
+        for (let i in matching){
+            addMatching += (`
+                <tr data-index="${i}">
+                    <td>Matching</td>
+                    <td>${matching[i].questionText}</td>
+                    <td><div id="span1">1. ${matching[i].option1}</div><div id="span2"> A. ${matching[i].option11}</div><br>
+                        <div id="span1">2. ${matching[i].option2}</div><div id="span2"> B. ${matching[i].option12}</div><br>
+                        <div id="span1">3. ${matching[i].option3}</div><div id="span2"> C. ${matching[i].option13}</div><br>
+                        <div id="span1">4. ${matching[i].option4}</div><div id="span2"> D. ${matching[i].option14}</div><br>
+                        <div id="span1">5. ${matching[i].option5}</div><div id="span2"> E. ${matching[i].option15}</div><br>
+                        <div id="span1">6. ${matching[i].option6}</div><div id="span2"> F. ${matching[i].option16}</div><br>
+                        <div id="span1">7. ${matching[i].option7}</div><div id="span2"> G. ${matching[i].option17}<br>
+                        <div id="span1">8. ${matching[i].option8}</div><div id="span2"> H. ${matching[i].option18}</div><br>
+                        <div id="span1">9. ${matching[i].option9}</div><div id="span2"> I. ${matching[i].option19}</div><br>
+                        <div id="span1">10. ${matching[i].option10}</div><div id="span2"> J. ${matching[i].option20}</div></td>
+                    <td>${matching[i].correct}</td>
+                    <td><input type="checkbox" name="record"></td>
+                </tr>
+            `);
+        };
+
+        $("#questionTable > tbody").append(addMatching);
+    };
+
+    populateQuestions();
+
+//             Find and remove selected table rows
+    $(".delete-row").click(function(){
+        $("#questionTable > tbody input[name=record]").each(function(){
+            if($(this).is(":checked")){
+
+
+                let $row = $(this).closest("tr");
+                let index = parseInt($row.attr("data-index"));
+                let matching = JSON.parse(localStorage.getItem('matching'));
+
+                matching.splice(index, 1);
+                localStorage.setItem('matching', JSON.stringify(matching));
 
                 $row.remove();
 

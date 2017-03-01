@@ -23,6 +23,7 @@
                 getMultiData.preventDefault();
                 var multiData = {
                     questionText: $('#questionText').val(),
+                    
                 };
                 console.log(multiData);
                 
@@ -58,16 +59,18 @@
             
             <br>
 
-          <textarea name="moreinfo" cols="70" rows="30" maxlength="none"></textarea>
-             
+          <textarea name="moreinfo" cols="70" rows="30" maxlength="none" disabled></textarea>
+            
         </div>
 
             <br>
+            <br>
+      
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
 
-            <a href="/templates/newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
+            <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
 
         </div> 
     </form>

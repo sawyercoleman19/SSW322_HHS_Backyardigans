@@ -26,20 +26,39 @@
                     option1: $('#option1').val(),
                     option2: $('#option2').val(),
                     option3: $('#option3').val(),
-                    option4: $('#option4').val()
+                    option4: $('#option4').val(),
+                    option5: $('#option5').val(),
+                    option6: $('#option6').val(),
+                    option7: $('#option7').val(),
+                    option8: $('#option8').val(),
+                    option9: $('#option9').val(),
+                    option10: $('#option10').val(),
+                    option11: $('#option11').val(),
+                    option12: $('#option12').val(),
+                    option13: $('#option13').val(),
+                    option14: $('#option14').val(),
+                    option15: $('#option15').val(),
+                    option16: $('#option16').val(),
+                    option17: $('#option17').val(),
+                    option18: $('#option18').val(),
+                    option19: $('#option19').val(),
+                    option20: $('#option20').val(),
+                  
+                    correct: $('#correct').val()
+                  
                 };
                 console.log(multiData);
                 
-                var newMulti = localStorage.getItem('multipleChoice');
+                var newMulti = localStorage.getItem('matching');
                 if (newMulti === null){
-                    newMulti = [];
+                    newMulti = "undefined";
                 }
                 else{
                     newMulti = JSON.parse(newMulti);
                 }
                 newMulti.push(multiData);
                 
-                localStorage.setItem('multipleChoice', JSON.stringify(newMulti));
+                localStorage.setItem('matching', JSON.stringify(newMulti));
   
             }); 
         });
@@ -58,8 +77,10 @@
     <form id="myForm"> 
         <div class="col-lg-10 col-lg-offset-1 form-group">
             <label>Question: </label>
-            <input type="surveyname" class="form-control" id="examplesurveyname" placeholder="Enter Question">
+            <input type="surveyname" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
           </br>
+    
+          <label>*Note: Only type in prompts for the amount of you want in your section. You do not have to use all 10 prompts*</label>
           <table class="table table-hover" id="surveyTable" style="text-align: center">
                 <thead>
                     <tr>
@@ -70,33 +91,42 @@
                 <tbody>
                     <tr>
                         <td>
-                           <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-               <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
-            <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Prompt"></label><br>
+                           <label> 1. <input type="text" name="option1" id="option1" placeholder="Enter Prompt"></label><br>
+            <label> 2. <input type="text" name="option2" id="option2" placeholder="Enter Prompt"></label><br>
+            <label> 3. <input type="text" name="option3" id="option3" placeholder="Enter Prompt"></label><br>
+            <label> 4. <input type="text" name="option4" id="option4" placeholder="Enter Prompt"></label><br>
+            <label> 5. <input type="text" name="option5" id="option5" placeholder="Enter Prompt"></label><br>
+            <label> 6. <input type="text" name="option6" id="option6" placeholder="Enter Prompt"></label><br>
+            <label> 7. <input type="text" name="option7" id="option7" placeholder="Enter Prompt"></label><br>
+            <label> 8. <input type="text" name="option8" id="option8" placeholder="Enter Prompt"></label><br>
+            <label> 9. <input type="text" name="option9" id="option9" placeholder="Enter Prompt"></label><br>
+            <label> 10. <input type="text" name="option10" id="option10" placeholder="Enter Prompt"></label><br>
                         </td>
                         <td>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
-                          <label><input type="checkbox" id="cbox1" value="first_checkbox"> <input type="text" name="usrname" placeholder="Enter Answer"></label><br>
+                          <label> A. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option11" id="option11" placeholder="Enter Answer"></label><br>
+                          <label> B. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option12" id="option12" placeholder="Enter Answer"></label><br>
+                          <label> C. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option13" id="option13" placeholder="Enter Answer"></label><br>
+                          <label> D. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option14" id="option14" placeholder="Enter Answer"></label><br>
+                          <label> E. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option15" id="option15" placeholder="Enter Answer"></label><br>
+                          <label> F. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option16" id="option16" placeholder="Enter Answer"></label><br>
+                          <label> G. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option17" id="option17" placeholder="Enter Answer"></label><br>
+                          <label> H. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option18" id="option18" placeholder="Enter Answer"></label><br>
+                          <label> I. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option19" id="option19" placeholder="Enter Answer"></label><br>
+                          <label> J. <textarea name="number" cols="1" rows="1" maxlength="1" disabled></textarea> <input type="text" name="option20" id="option20" placeholder="Enter Answer"></label><br>
                         </td> 
                     </tr>
                 </tbody>
             </table>
-      </div>
+        
+          <br>
+          <br>
+      
+          <div class="row">
+                <label for="example-text-input" class="col-lg-2 col-form-label">Enter Answer Here: (Enter numbers with corresponding letters in a comma list. Ex. 3:C, 4:E, etc.)</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" name="correct" id="correct" placeholder="Please type in the correct answer">
+                </div>
+          </div>
 
             <br>
   
@@ -104,7 +134,7 @@
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
 
-            <a href="/templates/newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
+            <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
 
         </div> 
     </form>
