@@ -1,8 +1,26 @@
 from flask import Flask, render_template, request, url_for, redirect
+from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms.validators import InputRequired
 from connectdb import connection
-from wtforms import Form
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+Bootstrap(app)
+db = SQLAlchemy(app)
+
+class Question(db.Model):
+	QuestionID = db.Column(db.Integer, primary_key = True)
+	question = db.Column(db.String())
+	answer = db.Column(db.String())
+class CreateSA(Form):
+	question = TextField('Enter a question', validators = [InputRequired()])
+
+class CreateTF(Form):
+	question = TextField('Enter a question', validators = [InputRequired()])
+
+class Essay(Form):
+	question = TextField('Enter a question', validators = [InputRequired()])
 
 @app.route('/')
 def homepage():
@@ -13,15 +31,11 @@ def index():
 	return "Hi"
 
 @app.route('/questions/', methods=['GET','POST'])
-def question_form():
+def questions():
 
 	if request.method == "POST":
 		submitted_form = request.form['question']
 	return render_template("questions.html")
-
-class questionnaire(Form):
-	question = TextField('Enter a question')
-	response = TextField('Enter a response here')
 
 @app.route('/form/', methods=['GET','POST'])
 def connect_db():
