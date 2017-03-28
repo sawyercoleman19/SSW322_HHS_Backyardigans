@@ -51,11 +51,12 @@
                 
                 var newMulti = localStorage.getItem('matching');
                 if (newMulti === null){
-                    newMulti = "undefined";
+                    newMulti = [];
                 }
                 else{
                     newMulti = JSON.parse(newMulti);
-                }
+                };
+                
                 newMulti.push(multiData);
                 
                 localStorage.setItem('matching', JSON.stringify(newMulti));
