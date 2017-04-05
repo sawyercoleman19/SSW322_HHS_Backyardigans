@@ -60,20 +60,31 @@
             <label>Statement: </label>
             <input class="form-control" type="text" name="questionText" id="questionText" placeholder="Enter Prompt">
             
-          </br>
-          
+            <br>
+            
+<!--
+            <label class="col-lg-12 col-form-label" name="option1"  id="option1" value="True">Option 1:  True </label>
+            <label class="col-lg-12 col-form-label" name="option2"  id="option2" value="False">Option 2: False </label>
+-->
+            
+<!--    To be used for taking the exam      -->
             <input type="radio" name="option1" value="True" id="option1" disabled> True
             <input type="radio" name="option2" value="False" id="option2" disabled> False
+
       
-  </br> 
-  </br>
-  </br>
+            <br> 
+            <br>
+            <br>
   
       <div class="row">
-                <label for="example-text-input" class="col-lg-12 col-form-label">FOR EXAMS ONLY:</label></br>
-                <label for="example-text-input" class="col-lg-2 col-form-label">Enter Answer Here: </label>
+    
+                <label for="example-text-input" class="col-lg-2 col-form-label">Select Correct Answer: </label>
                 <div class="col-lg-9">
-                    <input class="form-control" type="text" name="correct" id="correct" placeholder="Please type in the correct answer">
+                    <select class="form-control" type="text" name="correct" id="correct" placeholder="Please type in the correct answer text">
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                        
+                    </select>
                 </div>
             </div>
         </br>
