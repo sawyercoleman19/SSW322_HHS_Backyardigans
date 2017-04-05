@@ -1,6 +1,6 @@
 <html> 
 <head> 
-    <title>New Exam</title>
+    <title>New Survey</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -14,24 +14,20 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
     
-    <script src="newExamV2.js"></script>
+    <script src="newSurveyV2.js"></script>
 </head>
 <body>
     
     <br>
     
-    <label>Exam Name: </label>
-    <input class="form-control" type="text" name="name" id="examName">
+    <label>Survey Name: </label>
+    <input class="form-control" type="text" name="name" id="surveyName">
     
     <br>
     
     <button type="button" class="btn btn-default" id="addMultiChoice">Add Multiple Choice</button>
     
     <button type="button" class="btn btn-default" id="addTF">Add T/F</button>
-    
-    <button type="button" class="btn btn-default" id="addRanking">Add Ranking</button>
-    
-<!--    <button type="button" class="btn btn-default" id="addMatching">Add Matching</button>-->
     
     <button type="button" class="btn btn-default" id="addSA">Short Answer</button>
     
@@ -42,7 +38,7 @@
     
     <div id="container"></div>
     
-    <button type="button" class="btn btn-default" id="saveExam">Submit</button>
+    <button type="button" class="btn btn-default" id="saveSurvey">Submit</button>
     <button onclick="location.href = 'homeV2.html'" type="button" class="btn btn-default" id="goHome">Return Home</button>
 </body>
 </html>

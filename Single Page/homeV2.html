@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- JQUERY   -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+    
+    <script src="homeV2.js"></script>
+
+    
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-12 text-center">
+            <h1>HHS Backyardigans Questionnaire Pro</h1>
+            <p>An Experience Unmatched</p>
+    </div>
+    
+    
+    <div class="col-lg-12 text-center">
+        <a href="typeV2.html" class="clear-all ladda-button ladda-button-demo btn btn-primary btn-lg" role="button" data-style="zoom-in"><span class="ladda-label">Create a Questionnaire</span><span class="ladda-spinner"></span></a>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <hr style="width:100%">
+    
+    <div class="container">
+        <div class="col-lg-12 row text-left">
+            <h3 class="text-left">Your Surveys:</h3>
+            <table class="table table-hover" id="surveyTable">
+                <thead>
+                    <tr>
+                        <th>Survey Name</th>
+                        <th></th>
+                        <th>Action</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cool Survey #1</td>
+                        <td></td>
+
+                        <td class="btn btn-default actionButton" href="viewSurveyV2.html" disabled> View Questionnaire </td>
+                        
+<!-- FOR FUTURE FEATURES-->
+<!--
+                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Take </td>
+                        <td class="btn btn-default actionButton" style="margin-right: 90px"> Results </td>
+                        <td class="btn btn-default actionButton"> Edit </td>
+-->
+                        
+                        <td>Example</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
+        
+        </div>
+        
+ 
+
+        <div class="col-lg-12 row text-left">
+            <h3 class="text-left">Your Exams</h3>
+            <table class="table table-hover" id="examTable">
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th></th>
+                        <th>Action</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Great Exam #1</td>
+                        <td></td>
+
+                        <td class="btn btn-default actionButton" href="viewExamV2.html" disabled> View Questionnaire </td>
+                        
+                        <td>Example</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a class='delete-row btn btn-default actionButton' role="button" data-style="zoom-in" style="float:right"><span class="ladda-label">Delete Row</span><span class="ladda-spinner"></span></a>
+
+        </div>
+
+        <button type="button" class="btn btn-default" id="clearSystem">Clear All</button>
+        
+    </div>
+</div>
+</body>
+</html>
