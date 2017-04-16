@@ -1,5 +1,5 @@
 
-//<!-- ADD / REMOVE SURVEY ROWS-->        
+// ADD / REMOVE SURVEY ROWS-->        
 $(document).ready(function(){
     function populateSurveys() {
         let surveys = localStorage.getItem('surveys');
@@ -53,19 +53,7 @@ $(document).ready(function(){
         localStorage.clear();
 
     });
-    let surveys = localStorage.getItem('surveys');
-    Parsedsurveys = JSON.parse(surveys);
-
-    console.log(Parsedsurveys);
-    for (i = 0; i < dbsurvey.length - 1; i++){
-    var dbname = Parsedsurveys[i].name;
-    console.log(dbname);
-    }
-    console.log(Object.keys(Parsedsurveys).length);
     
-    //Firebase reference
-    var firebaseRef = firebase.database().ref();
-    firebaseRef.child("Survey").set(dbname);
 
 });
 

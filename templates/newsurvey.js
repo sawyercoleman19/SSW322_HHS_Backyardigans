@@ -21,8 +21,16 @@ $(document).ready(function() {
         newSurveys.push(data);
 
         localStorage.setItem('surveys', JSON.stringify(newSurveys));
+        let dbname = localStorage.getItem('surveys');
+        Parsedsurveys = JSON.parse(dbname);
+        console.log(Parsedsurveys);
 
-    }); 
+        var firebaseRef = firebase.database().ref();
+        var key = firebaseRef.child("Survey").push(Parsedsurveys).key;
+        localStorage.setItem('key', JSON.stringify(key));
+        console.log(localStorage.getItem('key'));
+        fireBaseRef.child("Survey").push('surveys')
+    });
 });
 
 // ADDING MULTIPLE CHOICE      
