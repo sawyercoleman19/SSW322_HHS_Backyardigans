@@ -58,10 +58,8 @@
                 var essayquestions = JSON.parse(localStorage.getItem('essay'));
                 var ref = firebase.database().ref();
                 var key = JSON.parse(localStorage.getItem('key'));
-                
-                let surveys = JSON.parse(localStorage.getItem('surveys'));
 
-                EssayQ = ref.child('/Survey/' + key).child('Questions').set(essayquestions);
+                EssayQ = ref.child('/Survey/' + key).child('Questions').push(essayquestions);
             }); 
             
         });
