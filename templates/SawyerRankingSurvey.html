@@ -14,7 +14,19 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
  
-    
+    <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDt1Xq5hITwmYYiW_8fuojo6I92RRQweIE",
+        authDomain: "questionnaire-a985e.firebaseapp.com",
+        databaseURL: "https://questionnaire-a985e.firebaseio.com",
+        projectId: "questionnaire-a985e",
+        storageBucket: "questionnaire-a985e.appspot.com",
+        messagingSenderId: "403228443968"
+      };
+      firebase.initializeApp(config);
+    </script> 
     <script> 
     //STORING QUESTION DETAILS
         $(document).ready(function() { 
@@ -60,6 +72,11 @@
                 newRanking.push(rankingData);
                 
                 localStorage.setItem('ranking', JSON.stringify(newRanking));
+                var rankingquestions = JSON.parse(localStorage.getItem('ranking'));
+                var ref = firebase.database().ref();
+                var key = JSON.parse(localStorage.getItem('key'));
+
+                rankQ = ref.child('/Survey/' + key).child('Questions').push(rankingquestions);
             }); 
         });
     </script> 
