@@ -15,32 +15,38 @@
     <script src="http://malsup.github.com/jquery.form.js"></script> 
  
     
-    <script> 
+    <script>  
     //STORING QUESTION DETAILS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#myForm').on("submit", function(getMultiData) { 
-                getMultiData.preventDefault();
-                var multiData = {
+            $('#myForm').on("submit", function(getTFData) { 
+                getTFData.preventDefault();
+                var tfData = {
                     questionText: $('#questionText').val(),
-                    option1: $('#option1').val(),
-                    option2: $('#option2').val(),
+                    option1: "True",
+                    option2: "False"
                   
                     correct: $('#correct').val()
                 };
-                console.log(multiData);
+                console.log(tfData);
                 
-                var newMulti = localStorage.getItem('trueFalse');
-                if (newMulti === null){
-                    newMulti = [];
+                var options = [];
+                options.push( $('#option1').val(), $('#option2').val());
+                
+                console.log(options);
+                tfData.options = options;
+                
+                
+                var newTF = localStorage.getItem('trueFalse');
+                if (newTF === null){
+                    newTF = [];
                 }
                 else{
-                    newMulti = JSON.parse(newMulti);
+                    newTF = JSON.parse(newTF);
                 }
-                newMulti.push(multiData);
+                newTF.push(tfData);
                 
-                localStorage.setItem('trueFalse', JSON.stringify(newMulti));
-  
+                localStorage.setItem('trueFalse', JSON.stringify(newTF));
             }); 
         });
     </script> 
@@ -68,8 +74,10 @@
 -->
             
 <!--    To be used for taking the exam      -->
-            <input type="radio" name="option1" value="True" id="option1" disabled> True
-            <input type="radio" name="option2" value="False" id="option2" disabled> False
+            <h4>Options:</h4>
+            <label>- True</label>
+            <br>
+            <label>- False</label>
 
       
             <br> 

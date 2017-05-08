@@ -19,27 +19,27 @@
     //STORING QUESTION DETAILS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#myForm').on("submit", function(getMultiData) { 
-                getMultiData.preventDefault();
-                var multiData = {
+            $('#myForm').on("submit", function(getSAData) { 
+                getSAData.preventDefault();
+                var saData = {
                     questionText: $('#questionText').val(),
+                    questionType: "Short Answer",
                   
                     correct: $('#correct').val()
                 };
-                console.log(multiData);
+                console.log(saData);
                 
-                var newMulti = localStorage.getItem('shortAnswer');
-                if (newMulti === null){
-                    newMulti = [];
+                var newSA = localStorage.getItem('shortAnswer');
+                if (newSA === null){
+                    newSA = [];
                 }
                 else{
-                    newMulti = JSON.parse(newMulti);
+                    newSA = JSON.parse(newSA);
                 }
-                newMulti.push(multiData);
+                newSA.push(saData);
                 
-                localStorage.setItem('shortAnswer', JSON.stringify(newMulti));
-  
-            }); 
+                localStorage.setItem('shortAnswer', JSON.stringify(newSA));
+            });
         });
     </script> 
 </head>

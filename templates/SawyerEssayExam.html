@@ -19,25 +19,24 @@
     //STORING QUESTION DETAILS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#myForm').on("submit", function(getMultiData) { 
-                getMultiData.preventDefault();
-                var multiData = {
+            $('#myForm').on("submit", function(getEssayData) { 
+                getEssayData.preventDefault();
+                var essayData = {
                     questionText: $('#questionText').val(),
-                    
+                    questionType: "Essay"
                 };
-                console.log(multiData);
+                console.log(essayData);
                 
-                var newMulti = localStorage.getItem('essay');
-                if (newMulti === null){
-                    newMulti = [];
+                var newEssay = localStorage.getItem('essay');
+                if (newEssay === null){
+                    newEssay = [];
                 }
                 else{
-                    newMulti = JSON.parse(newMulti);
+                    newEssay = JSON.parse(newEssay);
                 }
-                newMulti.push(multiData);
+                newEssay.push(essayData);
                 
-                localStorage.setItem('essay', JSON.stringify(newMulti));
-  
+                localStorage.setItem('essay', JSON.stringify(newEssay));
             }); 
         });
     </script> 
@@ -56,10 +55,6 @@
         <div class="col-lg-10 col-lg-offset-1 form-group">
             <label>Question: </label>
             <input type="text" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
-            
-            <br>
-
-          <textarea name="moreinfo" cols="70" rows="30" maxlength="none" disabled></textarea>
             
         </div>
 

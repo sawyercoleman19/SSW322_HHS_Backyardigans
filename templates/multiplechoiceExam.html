@@ -22,15 +22,17 @@
             $('#myForm').on("submit", function(getMultiData) { 
                 getMultiData.preventDefault();
                 var multiData = {
-                    questionText: $('#questionText').val(),
-                    option1: $('#option1').val(),
-                    option2: $('#option2').val(),
-                    option3: $('#option3').val(),
-                    option4: $('#option4').val(),
-                    
-                    correct: $('#correct').val()
+                    questionText: $('#questionText').val(),  
+                    correct: $('#correct').val(),
+                    questionType: "MultipleChoice"
                 };
                 console.log(multiData);
+                
+                var options = [];
+                options.push( $('#option1').val(), $('#option2').val(), $('#option3').val(), $('#option4').val());
+                
+                console.log(options);
+                multiData.options = options;
                 
                 var newMulti = localStorage.getItem('multipleChoice');
                 if (newMulti === null){
@@ -41,6 +43,7 @@
                 }
 
                 newMulti.push(multiData);
+                console.log(newMulti);
                 
                 localStorage.setItem('multipleChoice', JSON.stringify(newMulti));
   
@@ -102,10 +105,10 @@
                 
                 <div class="col-lg-9">
                     <select class="form-control" type="text" name="correct" id="correct" placeholder="Please type in the correct answer text">
-                        <option value="A">Option 1</option>
-                        <option value="B">Option 2</option>
-                        <option value="C">Option 3</option>
-                        <option value="D">Option 4</option>
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                        <option value="Option 4">Option 4</option>
                     </select>
                 </div>
                 

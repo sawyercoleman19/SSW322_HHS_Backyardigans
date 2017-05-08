@@ -19,30 +19,47 @@
     //STORING QUESTION DETAILS
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#myForm').on("submit", function(getMultiData) { 
-                getMultiData.preventDefault();
-                var multiData = {
-                    questionText: $('#questionText').val(),
-                    option1: $('#option1').val(),
-                    option2: $('#option2').val(),
-                    option3: $('#option3').val(),
-                    option4: $('#option4').val(),
-                    option5: $('#option5').val()
+            $('#myForm').on("submit", function(getRankingData) { 
+                getRankingData.preventDefault();
+                var rankingData = {
+                    questionText: $('#rankingQuestion').val(),
+                    questionType: "Ranking"
   
                 };
-                console.log(multiData);
+                console.log(rankingData);
                 
-                var newMulti = localStorage.getItem('ranking');
-                if (newMulti === null){
-                    newMulti = [];
+                var options = [];
+                options.push(
+                    $('#option1').val(), 
+                    $('#option2').val(), 
+                    $('#option3').val(), 
+                    $('#option4').val(), 
+                    $('#option5').val()
+                );
+                console.log(options);
+                rankingData.options = options;
+                
+                var rank = [];
+                rank.push(
+                    $('#rank1').val(), 
+                    $('#rank2').val(), 
+                    $('#rank3').val(), 
+                    $('#rank4').val(), 
+                    $('#rank5').val()
+                );
+                console.log(rank);
+                rankingData.rank = rank;
+                
+                var newRanking = localStorage.getItem('ranking');
+                if (newRanking === null){
+                    newRanking = [];
                 }
                 else{
-                    newMulti = JSON.parse(newMulti);
+                    newRanking = JSON.parse(newRanking);
                 }
-                newMulti.push(multiData);
+                newRanking.push(rankingData);
                 
-                localStorage.setItem('ranking', JSON.stringify(newMulti));
-  
+                localStorage.setItem('ranking', JSON.stringify(newRanking));
             }); 
         });
     </script> 
@@ -58,14 +75,13 @@
     </div>
     
     <form id="myForm"> 
-        <div class="col-lg-10 col-lg-offset-1 form-group">
+        <div class="form-group">
             <label>Question: </label>
-            <input type="text" class="form-control" name="questionText" id="questionText" placeholder="Enter Question">
+            <input type="text" class="form-control" name="questionText" id="rankingQuestion" placeholder="Enter Question">
             
-          <br>
-              </div>
+        <br>
         
-        <div class="col-lg-8 col-lg-offset-1 text-center">
+        <div class="text-center">
             <table class="table table-hover" id="questionTable">
                 <thead>
                     <tr>
@@ -84,7 +100,7 @@
             </div>
                       </td>
                         <td>
-                          <select name="Rank1">
+                          <select name="Rank1" id="rank1">
                             <option value="" selected disabled>No Rank</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -104,7 +120,7 @@
             </div>
                         </td>
                         <td>
-                          <select name="Rank2">
+                          <select name="Rank2" id="rank2">
                             <option value="" selected disabled>No Rank</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -124,7 +140,7 @@
             </div>
                         </td>
                         <td>
-                          <select name="Rank3">
+                          <select name="Rank3" id="rank3">
                             <option value="" selected disabled>No Rank</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -144,7 +160,7 @@
             </div>
                         </td>
                         <td>
-                          <select name="Rank4">
+                          <select name="Rank4" id="rank4">
                             <option value="" selected disabled>No Rank</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -164,7 +180,7 @@
             </div>
                         </td>
                         <td>
-                          <select name="Rank5">
+                          <select name="Rank5" id="rank5">
                             <option value="" selected disabled>No Rank</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -176,17 +192,17 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
           <br>
         </div>
-
-
+        
         <div class="col-lg-8 col-lg-offset-2">
             <input class='btn btn-default actionButton' type="submit" value="Save" />
 
           
             <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
 
-        </div> 
+        </div>
     </form>
 </body>
 </html>
