@@ -87,6 +87,34 @@ $(document).ready(function(){
 
 });
 
+//<!-- ADD RESULTS ROWS-->  
+$(document).ready(function(){
+    function populateResults() {
+        let surveyResults = localStorage.getItem('surveyResults');
+
+        if (!surveyResults) return;
+
+        surveyResults = JSON.parse(surveyResults);
+
+        let addResults = "" ;
+
+        for (let i in surveyResults){
+            addResults += (`
+                <tr data-index="${i}">
+                    <td>${surveyResults[i].name}</td>
+                    <td></td>
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='resultsSurvey.html'"> View Results </td>
+                </tr>
+            `);
+        };
+
+        $("#resultsTable > tbody").append(addResults);
+    };
+
+    populateResults();
+
+});
+
 
 
 

@@ -1,3 +1,27 @@
+$(document).ready(function(){
+    function populateExams() {
+        let exams = localStorage.getItem('exams');
+
+        if (!exams) return;
+
+        exams = JSON.parse(exams);
+
+        let addExam = "" ;
+
+        for (let i in exams){
+            addExam += (`
+                <h2>${exams[i].name}"</h2>
+            `);
+        };
+
+        $("#nameContainer").append(addExam);
+    };
+
+    populateExams();
+
+}); 
+
+
 //STORING NEW Exams
 $(document).on('click', '#saveExam', function(saveExam) 
 {
@@ -239,193 +263,6 @@ $(document).ready(function(){
 
 });
 
-//ADDING Matching
-$(document).ready(function(){
-    function populateQuestions() {
-        let matching = localStorage.getItem('matching');
-
-        matching = JSON.parse(matching);
-
-        let addMatching = "" ;
-
-        for (let i in matching){
-            if (!matching[i].questionText) return;
-            addMatching += (`
-                <div class="well">
-                <h3>Matching</h3>
-                <form id="myForm"> 
-                    <div class="form-group">
-                        <label>Question: </label>
-                        <input type="text" class="form-control" name="questionText" id="matchingQuestion" placeholder="Enter Question">
-
-                    <br>
-                    <div class="well col-lg-3">
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 1</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option1" id="option1">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 2</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option2" id="option2">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 3</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option3" id="option3">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 4</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option4" id="option4">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 5</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option5" id="option5">
-                            </div>
-                        </div>
-                    </div>
-
-                        <br>
-                        <br>
-
-                </div>
-
-
-                    <div class="well text-center">
-                        <table class="table table-hover" id="questionTable">
-                            <thead>
-                                <tr>
-                                    <th>Matching List</th>
-                                    <th>Correct Match</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                      <div class="row">
-                                        <label for="example-text-input" class="col-lg-2 col-form-label">Match Option 1</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" id="optionMatch1">
-                                        </div>
-                                    </div>
-                                  </td>
-                                    <td>
-                                      <select name="Rank1" id="rank1">
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                        <option value="Option 5">Option 5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                              <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Match Option 2</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text"  id="optionMatch2">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank2" id="rank2">
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                        <option value="Option 5">Option 5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                              <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Match Option 3</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text"  id="optionMatch3">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank3" id="rank3">
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                        <option value="Option 5">Option 5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Match Option 4</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text"  id="optionMatch4">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank4" id="rank4">
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                        <option value="Option 5">Option 5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Match Option 5</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text"  id="optionMatch5">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank5" id="rank5">
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                        <option value="Option 5">Option 5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                      <br>
-                    </div>
-
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <input class='btn btn-default actionButton' type="submit" value="Save" />
-
-
-                        <a href="newsurvey.html" class='btn btn-default actionButton' role="button" data-style="zoom-in"><span class="ladda-label">Return to Questionaire</span><span class="ladda-spinner"></span></a>
-
-                    </div>
-                </form>
-            </div>
-            `);
-        };
-
-        $("#container").append(addMatching);
-    };
-
-    populateQuestions();
-
-});
 
 //ADDING Ranking
 $(document).ready(function(){
@@ -573,6 +410,115 @@ $(document).ready(function(){
     populateQuestions();
 
 });
+
+//ADDING Matching
+$(document).ready(function(){
+    function populateQuestions() {
+        let matching = localStorage.getItem('matching');
+
+        matching = JSON.parse(matching);
+
+        let addMatching = "" ;
+
+        for (let i in matching){
+            if (!matching[i].questionText) return;
+            addMatching += (`
+                <div class="well">
+                <h3>Matching</h3>
+                <form id="matchingForm"> 
+                    <div class="form-group">
+                        <label>Question: </label>
+                        <input type="text" class="form-control" name="questionText" id="matchingQuestion" value="${matching[i].questionText}">
+
+                        <br>
+                        <div class='row'>
+                            <div class="well text-Center col-lg-4">
+                                <h3>Match Set 1</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option1M" value="${matching[i].option1}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option2M" value="${matching[i].option2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option3M" value="${matching[i].option2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option4M" value="${matching[i].option3}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option5M" value="${matching[i].option4}" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="well text-Center col-lg-4">
+                                <h3>Match Set 2</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 1</label>
+                                    <input class="form-control" type="text" name="option1" id="match1" value="${matching[i].match1}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 2</label>
+                                    <input class="form-control" type="text" name="option1" id="match2" value="${matching[i].match2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 3</label>
+                                    <input class="form-control" type="text" name="option1" id="match3" value="${matching[i].match3}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 4</label>
+                                    <input class="form-control" type="text" name="option1" id="match4" value="${matching[i].match4}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 5</label>
+                                    <input class="form-control" type="text" name="option1" id="match5" value="${matching[i].match5}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="well text-Center col-lg-4">
+                                <h3>Your Answers:</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 1</label>
+                                    <input class="form-control" type="text" name="option1" id="match1R" value="${matching[i].match1R}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 2</label>
+                                    <input class="form-control" type="text" name="option1" id="match2R" value="${matching[i].match2R}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 3</label>
+                                    <input class="form-control" type="text" name="option1" id="match3R" value="${matching[i].match3R}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 4</label>
+                                    <input class="form-control" type="text" name="option1" id="match4R" value="${matching[i].match4R}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 5</label>
+                                    <input class="form-control" type="text" name="option1" id="match5R" value="${matching[i].match5R}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            `);
+        };
+
+        $("#container").append(addMatching);
+    };
+
+    populateQuestions();
+
+});
+
+
 
 
 
@@ -751,3 +697,50 @@ $(document).on('click', '#saveExam', function(getRankingData)
                 
                 localStorage.setItem('ranking', JSON.stringify(newRanking));
 });
+
+//Matching
+$(document).on('click', '#saveExam', function(getMatching) { 
+    
+    getMatching.preventDefault();
+                var matchingData = {
+                    questionText: $('#matchingQuestion').val(),
+                    questionType: "Matching"
+  
+                };
+                
+                
+                var matchingData = {
+                    questionText: $('#matchingQuestion').val(),
+                    option1: $('#option1M').val(),
+                    option2: $('#option2M').val(),
+                    option3: $('#option3M').val(),
+                    option4: $('#option4M').val(),
+                    option5: $('#option5M').val(),
+                    
+                    match1: $('#match1').val(),
+                    match2: $('#match2').val(),
+                    match3: $('#match3').val(),
+                    match4: $('#match4').val(),
+                    match5: $('#match5').val(),
+                    
+                    match1Response: $('#match1R').val(),
+                    match2Response: $('#match2R').val(),
+                    match3Response: $('#match3R').val(),
+                    match4Response: $('#match4R').val(),
+                    match5Response: $('#match5R').val()
+                };
+                console.log(matchingData);
+                
+                var newMatching = localStorage.getItem('matching');
+                if (newMatching === null){
+                    newMatching = [];
+                }
+                else{
+                    newMatching = JSON.parse(newMatching);
+                }
+        
+                newMatching=[];
+                newMatching.push(matchingData);
+                
+                localStorage.setItem('matching', JSON.stringify(newMatching));
+    });
