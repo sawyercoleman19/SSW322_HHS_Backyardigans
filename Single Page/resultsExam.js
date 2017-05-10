@@ -285,119 +285,80 @@ $(document).ready(function(){
 
                     <br>
 
-                    <div class="text-center">
-                        <table class="table table-hover" id="questionTable">
-                            <thead>
-                                <tr>
-                                    <th>Options</th>
-                                    <th>Rank</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                      <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 1</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option1R" id="option1R" value="${ranking[i].option1}" disabled>
-                                <input class="form-control" type="text" name="correct" id="rank1" value="${ranking[i].rank1}" style="display: none;">
+                    <div class='row'>
+                            <div class="well text-Center col-lg-4">
+                                <h3>Rank Options</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option1R" value="${ranking[i].option1}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option2R" value="${ranking[i].option2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option3R" value="${ranking[i].option2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option4R" value="${ranking[i].option3}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Option 1</label>
+                                    <input class="form-control" type="text" name="option1" id="option5R" value="${ranking[i].option4}" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="well text-Center col-lg-4">
+                                <h3>Correct Rank</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 1</label>
+                                    <input class="form-control" type="text" name="option1" id="rank1" value="${ranking[i].rank1}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 2</label>
+                                    <input class="form-control" type="text" name="option1" id="rank2" value="${ranking[i].rank2}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 3</label>
+                                    <input class="form-control" type="text" name="option1" id="rank3" value="${ranking[i].rank3}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 4</label>
+                                    <input class="form-control" type="text" name="option1" id="rank4" value="${ranking[i].rank4}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 5</label>
+                                    <input class="form-control" type="text" name="option1" id="rank5" value="${ranking[i].rank5}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="well text-Center col-lg-4">
+                                <h3>Your Answers:</h3>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 1</label>
+                                    <input class="form-control" type="text" name="option1" id="match1R" value="${ranking[i].rank1Response}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 2</label>
+                                    <input class="form-control" type="text" name="option1" id="match2R" value="${ranking[i].rank2Response}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 3</label>
+                                    <input class="form-control" type="text" name="option1" id="match3R" value="${ranking[i].rank3Response}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 4</label>
+                                    <input class="form-control" type="text" name="option1" id="match4R" value="${ranking[i].rank4Response}" disabled>
+                                </div>
+                                <div class="row">
+                                    <label for="example-text-input" class="col-form-label">Match 5</label>
+                                    <input class="form-control" type="text" name="option1" id="match5R" value="${ranking[i].rank5Response}" disabled>
+                                </div>
                             </div>
                         </div>
-                                  </td>
-                                    <td>
-                                      <select name="Rank1" id="rank1Response">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                              <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 2</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option2" id="option2R" value="${ranking[i].option2}" disabled>
-                                <input class="form-control" type="text" name="correct" id="rank2" value="${ranking[i].rank2}" style="display: none;">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank2" id="rank2Response">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                              <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 3</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option3" id="option3R" value="${ranking[i].option3}" disabled>
-                                <input class="form-control" type="text" name="correct" id="rank3" value="${ranking[i].rank3}" style="display: none;">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank3" id="rank3Response">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 4</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option4" id="option4R" value="${ranking[i].option4}" disabled>
-                                <input class="form-control" type="text" name="correct" id="rank4" value="${ranking[i].rank4}" style="display: none;">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank4" id="rank4Response">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                    <td>
-                        <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Option 5</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option5" id="option5R" value="${ranking[i].option5}" disabled>
-                                <input class="form-control" type="text" name="correct" id="rank5" value="${ranking[i].rank5}" style="display: none;">
-                            </div>
-                        </div>
-                                    </td>
-                                    <td>
-                                      <select name="Rank5" id="rank5Response">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                      </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                      <br>
                     </div>
                 </form>
             </div>
@@ -485,23 +446,23 @@ $(document).ready(function(){
                                 <h3>Your Answers:</h3>
                                 <div class="row">
                                     <label for="example-text-input" class="col-form-label">Match 1</label>
-                                    <input class="form-control" type="text" name="option1" id="match1R" value="${matching[i].match1R}" disabled>
+                                    <input class="form-control" type="text" name="option1" id="match1R" value="${matching[i].match1Response}" disabled>
                                 </div>
                                 <div class="row">
                                     <label for="example-text-input" class="col-form-label">Match 2</label>
-                                    <input class="form-control" type="text" name="option1" id="match2R" value="${matching[i].match2R}" disabled>
+                                    <input class="form-control" type="text" name="option1" id="match2R" value="${matching[i].match2Response}" disabled>
                                 </div>
                                 <div class="row">
                                     <label for="example-text-input" class="col-form-label">Match 3</label>
-                                    <input class="form-control" type="text" name="option1" id="match3R" value="${matching[i].match3R}" disabled>
+                                    <input class="form-control" type="text" name="option1" id="match3R" value="${matching[i].match3Response}" disabled>
                                 </div>
                                 <div class="row">
                                     <label for="example-text-input" class="col-form-label">Match 4</label>
-                                    <input class="form-control" type="text" name="option1" id="match4R" value="${matching[i].match4R}" disabled>
+                                    <input class="form-control" type="text" name="option1" id="match4R" value="${matching[i].match4Response}" disabled>
                                 </div>
                                 <div class="row">
                                     <label for="example-text-input" class="col-form-label">Match 5</label>
-                                    <input class="form-control" type="text" name="option1" id="match5R" value="${matching[i].match5R}" disabled>
+                                    <input class="form-control" type="text" name="option1" id="match5R" value="${matching[i].match5Response}" disabled>
                                 </div>
                             </div>
                         </div>
