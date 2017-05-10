@@ -1,24 +1,24 @@
-//STORING NEW Exams
-$(document).on('click', '#saveExam', function(saveExam) 
-{
-        saveExam.preventDefault();
-        var data = {
-            name: $('#examName').val(),
-        };
-        console.log(data);
-
-        var newExams = localStorage.getItem('exams');
-        if (newExams === null){
-            newExams = [];
-        }
-        else{
-            newExams = JSON.parse(newExams);
-        }
-
-        newExams.push(data);
-
-        localStorage.setItem('exams', JSON.stringify(newExams)); 
-});
+////STORING NEW Exams
+//$(document).on('click', '#saveExam', function(saveExam) 
+//{
+//        saveExam.preventDefault();
+//        var data = {
+//            name: $('#userName').val(),
+//        };
+//        console.log(data);
+//
+//        var newExams = localStorage.getItem('exams');
+//        if (newExams === null){
+//            newExams = [];
+//        }
+//        else{
+//            newExams = JSON.parse(newExams);
+//        }
+//
+//        newExams.push(data);
+//
+//        localStorage.setItem('exams', JSON.stringify(newExams)); 
+//});
 
 // Adding MC    
 $(document).ready(function(){
@@ -38,7 +38,7 @@ $(document).ready(function(){
                 <form id="mcForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input class="form-control" type="text" name="questionText" id="mcQuestion" value="${multipleChoice[i].questionText}">
+                        <input class="form-control" type="text" name="questionText" id="mcQuestion" value="${multipleChoice[i].questionText}" disabled>
 
                         <br>
                         <br>
@@ -49,25 +49,25 @@ $(document).ready(function(){
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 1</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option1" id="option1" value="${multipleChoice[i].option1}">
+                                <input class="form-control" type="text" name="option1" id="option1" value="${multipleChoice[i].option1}" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 2</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option2" id="option2" value="${multipleChoice[i].option2}">
+                                <input class="form-control" type="text" name="option2" id="option2" value="${multipleChoice[i].option2}" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 3</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option3" id="option3" value="${multipleChoice[i].option3}">
+                                <input class="form-control" type="text" name="option3" id="option3" value="${multipleChoice[i].option3}" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 4</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option4" id="option4" value="${multipleChoice[i].option4}">
+                                <input class="form-control" type="text" name="option4" id="option4" value="${multipleChoice[i].option4}" disabled>
                             </div>
                         </div>
 
@@ -75,17 +75,17 @@ $(document).ready(function(){
                         <br>
 
                         <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Select Correct Answer:  </label>
+                            <label for="example-text-input" class="col-lg-2 col-form-label">Your Answer:  </label>
 
                             <div class="col-lg-9">
-                                <select class="form-control" type="text" name="correct" id="mcAnswer" placeholder="Please type in the correct answer text">
-                                    <option selected>Correct: ${multipleChoice[i].correct}</option>
+                                <select class="form-control" type="text" name="correct" id="mcResponse" placeholder="Please type in the correct answer text">
                                     <option value="Option 1">Option 1</option>
                                     <option value="Option 2">Option 2</option>
                                     <option value="Option 3">Option 3</option>
                                     <option value="Option 4">Option 4</option>
                                 </select>
                             </div>
+                            <input class="form-control" type="text" name="correct" id="mcAnswer" value="${multipleChoice[i].correct}" style="display: none;">
                         </div>
                     </div>
                 </form>
@@ -117,7 +117,7 @@ $(document).ready(function(){
                 <form id="tfForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input class="form-control" type="text" name="questionText" id="tfQuestion" placeholder="Enter Prompt" value="${trueFalse[i].questionText}">
+                        <input class="form-control" type="text" name="questionText" id="tfQuestion" placeholder="Enter Prompt" value="${trueFalse[i].questionText}" disabled>
 
                         <br>
 
@@ -134,15 +134,15 @@ $(document).ready(function(){
 
                   <div class="row">
 
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Select Correct Answer: </label>
+                            <label for="example-text-input" class="col-lg-2 col-form-label">Your Answer: </label>
                             <div class="col-lg-9">
-                                <select class="form-control" type="text" name="correct" id="tfAnswer">
-                                    <option selected>Correct: ${trueFalse[i].correct}</option>
+                                <select class="form-control" type="text" name="correct" id="tfResponse">
                                     <option value="True">True</option>
                                     <option value="False">False</option>
 
                                 </select>
                             </div>
+                            <input class="form-control" type="text" name="correct" id="tfAnswer" value="${trueFalse[i].correct}" style="display: none;">
                         </div>
                     </br>
                 </div>
@@ -176,7 +176,7 @@ $(document).ready(function(){
                 <form id="shortAnswerForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input type="text" class="form-control" name="questionText" id="saQuestion" placeholder="Enter Question" value="${shortAnswer[i].questionText}">
+                        <input type="text" class="form-control" name="questionText" id="saQuestion" placeholder="Enter Question" value="${shortAnswer[i].questionText}" disabled>
 
                         <br>
 
@@ -185,10 +185,11 @@ $(document).ready(function(){
                         <br>
 
                         <div class="row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Enter Correct Answer: </label>
+                            <label for="example-text-input" class="col-lg-2 col-form-label">Your Answer: </label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="correct" id="saAnswer" value="${shortAnswer[i].correct}">
+                                <input class="form-control" type="text" name="correct" id="saResponse">
                             </div>"
+                            <input class="form-control" type="text" name="correct" id="saAnswer" value="${shortAnswer[i].correct}" style="display: none;">
                         </div>
                     </div>
                 </form>
@@ -221,11 +222,13 @@ $(document).ready(function(){
                 <form id="essayForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input type="text" class="form-control" name="questionText" id="essayQuestion" placeholder="Enter Question" value="${essay[i].questionText}">
+                        <input type="text" class="form-control" name="questionText" id="essayQuestion" placeholder="Enter Question" value="${essay[i].questionText}" disabled>
 
                         <br>
 
-                        <input type="text" class="form-control" name="option1" id="option1" placeholder="Minimum 50 Characters" disabled>
+                        <label>Minimum 50 Characters</label>
+                        <textarea rows="10" cols="30" class="form-control" type="text" name="description" id="essayResponse" style="height:200px;"></textarea>
+                        
                         <br>
                         <br>
 
@@ -447,7 +450,7 @@ $(document).ready(function(){
                 <form id="myForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input type="text" class="form-control" name="questionText" id="rankingQuestion" value="${ranking[i].questionText}">
+                        <input type="text" class="form-control" name="questionText" id="rankingQuestion" value="${ranking[i].questionText}" disabled>
 
                     <br>
 
@@ -465,13 +468,13 @@ $(document).ready(function(){
                                       <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 1</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option1" id="option1R" value="${ranking[i].option1}">
+                                <input class="form-control" type="text" name="option1R" id="option1R" value="${ranking[i].option1}" disabled>
+                                <input class="form-control" type="text" name="correct" id="rank1" value="${ranking[i].rank1}" style="display: none;">
                             </div>
                         </div>
                                   </td>
                                     <td>
-                                      <select name="Rank1" id="rank1">
-                                        <option selected>Correct: ${ranking[i].rank1}</option>
+                                      <select name="Rank1" id="rank1Response">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -485,13 +488,13 @@ $(document).ready(function(){
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 2</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option2" id="option2R" value="${ranking[i].option2}">
+                                <input class="form-control" type="text" name="option2" id="option2R" value="${ranking[i].option2}" disabled>
+                                <input class="form-control" type="text" name="correct" id="rank2" value="${ranking[i].rank2}" style="display: none;">
                             </div>
                         </div>
                                     </td>
                                     <td>
-                                      <select name="Rank2" id="rank2">
-                                        <option selected>Correct: ${ranking[i].rank2}</option>
+                                      <select name="Rank2" id="rank2Response">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -505,13 +508,13 @@ $(document).ready(function(){
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 3</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option3" id="option3R" value="${ranking[i].option3}">
+                                <input class="form-control" type="text" name="option3" id="option3R" value="${ranking[i].option3}" disabled>
+                                <input class="form-control" type="text" name="correct" id="rank3" value="${ranking[i].rank3}" style="display: none;">
                             </div>
                         </div>
                                     </td>
                                     <td>
-                                      <select name="Rank3" id="rank3">
-                                        <option selected>Correct: ${ranking[i].rank3}</option>
+                                      <select name="Rank3" id="rank3Response">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -525,13 +528,13 @@ $(document).ready(function(){
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 4</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option4" id="option4R" value="${ranking[i].option4}">
+                                <input class="form-control" type="text" name="option4" id="option4R" value="${ranking[i].option4}" disabled>
+                                <input class="form-control" type="text" name="correct" id="rank4" value="${ranking[i].rank4}" style="display: none;">
                             </div>
                         </div>
                                     </td>
                                     <td>
-                                      <select name="Rank4" id="rank4">
-                                        <option selected>Correct: ${ranking[i].rank4}</option>
+                                      <select name="Rank4" id="rank4Response">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -545,13 +548,13 @@ $(document).ready(function(){
                         <div class="row">
                             <label for="example-text-input" class="col-lg-2 col-form-label">Option 5</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="option5" id="option5R" value="${ranking[i].option5}">
+                                <input class="form-control" type="text" name="option5" id="option5R" value="${ranking[i].option5}" disabled>
+                                <input class="form-control" type="text" name="correct" id="rank5" value="${ranking[i].rank5}" style="display: none;">
                             </div>
                         </div>
                                     </td>
                                     <td>
-                                      <select name="Rank5" id="rank5">
-                                        <option selected>Correct: ${ranking[i].rank5}</option>
+                                      <select name="Rank5" id="rank5Response">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -581,27 +584,28 @@ $(document).ready(function(){
 
 
 
-//STORING NEW Exams
-$(document).on('click', '#saveExam', function(saveExam) 
+//STORING RESULTS
+$(document).on('click', '#saveExam', function(saveResults) 
 {
-        saveExam.preventDefault();
+        saveResults.preventDefault();
         var data = {
-            name: $('#examName').val(),
+            name: $('#userName').val(),
             results: true
         };
         console.log(data);
 
-        var newExams = localStorage.getItem('exams');
-        if (newExams === null){
-            newExams = [];
+        var newResults = localStorage.getItem('results');
+        if (newResults === null){
+            newResults = [];
         }
         else{
-            newExams = JSON.parse(newExams);
+            newResults = JSON.parse(newResults);
         }
-        newExams=[];
-        newExams.push(data);
+        
+        newResults=[];
+        newResults.push(data);
 
-        localStorage.setItem('exams', JSON.stringify(newExams)); 
+        localStorage.setItem('results', JSON.stringify(newResults)); 
 });
 
 //Multiple Choice
@@ -615,7 +619,8 @@ $(document).on('click', '#saveExam', function(getMultiData)
                     option3: $('#option3').val(),
                     option4: $('#option4').val(),
                     
-                    correct: $('#mcAnswer').val()
+                    correct: $('#mcAnswer').val(),
+                    response: $('#mcResponse').val()
                 };
                 console.log(multiData);
                 
@@ -639,7 +644,10 @@ $(document).on('click', '#saveExam', function(getTFData)
     getTFData.preventDefault();
                 var tfData = {
                     questionText: $('#tfQuestion').val(),
-                    correct: $('#tfAnswer').val()
+                    correct: $('#tfAnswer').val(),
+                    response: $('#tfResponse').val()
+                    
+                    
                 };
                 console.log(tfData);
                 
@@ -664,7 +672,9 @@ $(document).on('click', '#saveExam', function(getSAData)
                 var saData = {
                     questionText: $('#saQuestion').val(),
                   
-                    correct: $('#saAnswer').val()
+                    correct: $('#saAnswer').val(),
+                    response: $('#saResponse').val()
+                    
                 };
                 console.log(saData);
                 
@@ -688,6 +698,9 @@ $(document).on('click', '#saveExam', function(getEssayData)
     getEssayData.preventDefault();
                 var essayData = {
                     questionText: $('#essayQuestion').val(),
+                    
+                    response: $('#essayResponse').val(),
+                    
                 };
                 console.log(essayData);
                 
@@ -716,11 +729,19 @@ $(document).on('click', '#saveExam', function(getRankingData)
                     option3: $('#option3R').val(),
                     option4: $('#option4R').val(),
                     option5: $('#option5R').val(),
+                    
                     rank1: $('#rank1').val(),
                     rank2: $('#rank2').val(),
                     rank3: $('#rank3').val(),
                     rank4: $('#rank4').val(),
-                    rank5: $('#rank5').val()
+                    rank5: $('#rank5').val(),
+                    
+                    rank1Response: $('#rank1Response').val(),
+                    rank2Response: $('#rank2Response').val(),
+                    rank3Response: $('#rank3Response').val(),
+                    rank4Response: $('#rank4Response').val(),
+                    rank5Response: $('#rank5Response').val(),
+                    
   
                 };
                 console.log(rankingData);

@@ -1,4 +1,3 @@
-
 //<!-- ADD / REMOVE SURVEY ROWS-->        
 $(document).ready(function(){
     function populateSurveys() {
@@ -14,11 +13,10 @@ $(document).ready(function(){
             addSurvey += (`
                 <tr data-index="${i}">
                     <td>${surveys[i].name}</td>
-                    <td></td>
 
-                    <td class="btn btn-default actionButton" onclick="location.href='viewSurveyV2.html';"> View Questionnaire </td>
-
-                    <td><input type="checkbox" name="record"></td>
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='viewSurveyV2.html';"> View Questionnaire </td>
+                    
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='takeSurvey.html';"> Take Questionnaire </td>
                 </tr>
             `);
         };
@@ -46,11 +44,10 @@ $(document).ready(function(){
             addExam += (`
                 <tr data-index="${i}">
                     <td>${exams[i].name}</td>
-                    <td></td>
 
-                    <td class="btn btn-default actionButton" onclick="location.href='viewexamV2.html';"> View Questionnaire </td>
-
-                    <td><input type="checkbox" name="record"></td>
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='viewExamV2.html'"> View Questionnaire </td>
+                    
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='takeExam.html'"> Take Questionnaire </td>
                 </tr>
             `);
         };
@@ -60,26 +57,35 @@ $(document).ready(function(){
 
     populateExams();
 
-//             Find and remove selected table rows
-    $(".delete-row").click(function(){
-        $("#examTable > tbody input[name=record]").each(function(){
-            if($(this).is(":checked")){
-
-
-                let $row = $(this).closest("tr");
-                let index = parseInt($row.attr("data-index"));
-                let exams = JSON.parse(localStorage.getItem('exams'));
-
-                exams.splice(index, 1);
-
-                localStorage.setItem('exams', JSON.stringify(exams));
-
-                $row.remove();
-
-            }
-        });
-    });
 }); 
+
+//<!-- ADD RESULTS ROWS-->  
+$(document).ready(function(){
+    function populateResults() {
+        let results = localStorage.getItem('results');
+
+        if (!results) return;
+
+        results = JSON.parse(results);
+
+        let addResults = "" ;
+
+        for (let i in results){
+            addResults += (`
+                <tr data-index="${i}">
+                    <td>${results[i].name}</td>
+                    <td></td>
+                    <td class="btn btn-default actionButton" style="margin-left:200px" onclick="location.href='resultsExam.html'"> View Results </td>
+                </tr>
+            `);
+        };
+
+        $("#resultsTable > tbody").append(addResults);
+    };
+
+    populateResults();
+
+});
 
 
 
