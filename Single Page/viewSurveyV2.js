@@ -328,20 +328,20 @@ $(document).ready(function(){
                                     <input class="form-control" type="text" name="option1" id="option1M" value="${matching[i].option1}">
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option2M" value="${matching[i].option2}">
+                                    <label for="example-text-input" class="col-form-label">Option 2</label>
+                                    <input class="form-control" type="text" name="option2" id="option2M" value="${matching[i].option2}">
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option3M" value="${matching[i].option2}">
+                                    <label for="example-text-input" class="col-form-label">Option 3</label>
+                                    <input class="form-control" type="text" name="option3" id="option3M" value="${matching[i].option2}">
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option4M" value="${matching[i].option3}">
+                                    <label for="example-text-input" class="col-form-label">Option 4</label>
+                                    <input class="form-control" type="text" name="option4" id="option4M" value="${matching[i].option3}">
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option5M" value="${matching[i].option4}">
+                                    <label for="example-text-input" class="col-form-label">Option 5</label>
+                                    <input class="form-control" type="text" name="option5" id="option5M" value="${matching[i].option4}">
                                 </div>
 
                             </div>

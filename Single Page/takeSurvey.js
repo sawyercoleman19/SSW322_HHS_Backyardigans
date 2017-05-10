@@ -32,7 +32,7 @@ $(document).ready(function(){
 
         for (let i in surveys){
             addSurvey += (`
-                <h2>${surveys[i].name}"</h2>
+                <h2>"${surveys[i].name}"</h2>
             `);
         };
 
@@ -282,7 +282,7 @@ $(document).ready(function(){
                 <form id="matchingForm"> 
                     <div class="form-group">
                         <label>Question: </label>
-                        <input type="text" class="form-control" name="questionText" id="matchingQuestion" value="${matching[i].questionText}">
+                        <input type="text" class="form-control" name="questionText" id="matchingQuestion" value="${matching[i].questionText}" disabled>
 
                         <br>
                         <div class='row'>
@@ -293,20 +293,20 @@ $(document).ready(function(){
                                     <input class="form-control" type="text" name="option1" id="option1M" value="${matching[i].option1}" disabled>
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option2M" value="${matching[i].option2}" disabled>
+                                    <label for="example-text-input" class="col-form-label">Option 2</label>
+                                    <input class="form-control" type="text" name="option2" id="option2M" value="${matching[i].option2}" disabled>
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option3M" value="${matching[i].option2}" disabled>
+                                    <label for="example-text-input" class="col-form-label">Option 3</label>
+                                    <input class="form-control" type="text" name="option3" id="option3M" value="${matching[i].option3}" disabled>
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option4M" value="${matching[i].option3}" disabled>
+                                    <label for="example-text-input" class="col-form-label">Option 4</label>
+                                    <input class="form-control" type="text" name="option4" id="option4M" value="${matching[i].option4}" disabled>
                                 </div>
                                 <div class="row">
-                                    <label for="example-text-input" class="col-form-label">Option 1</label>
-                                    <input class="form-control" type="text" name="option1" id="option5M" value="${matching[i].option4}" disabled>
+                                    <label for="example-text-input" class="col-form-label">Option 5</label>
+                                    <input class="form-control" type="text" name="option5" id="option5M" value="${matching[i].option5}" disabled>
                                 </div>
 
                             </div>
